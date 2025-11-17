@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "windows-vs2022",
+      "displayName": "Windows - Visual Studio 2022 x64",
+      "description": "Build menggunakan Visual Studio 2022 (MSVC v143)",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/windows",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install",
+        "CMAKE_SYSTEM_VERSION": "10.0",
+        "CMAKE_CXX_STANDARD": "17",
+        "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+        "CMAKE_CXX_EXTENSIONS": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-vs2022-build",
+      "configurePreset": "windows-vs2022",
+      "configuration": "Release"
+    }
+  ]
+}
