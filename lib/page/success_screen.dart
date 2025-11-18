@@ -28,11 +28,9 @@ class SuccessScreen extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Header dengan icon sukses
                       _buildHeader(isCheckIn),
                       const SizedBox(height: 32),
 
-                      // Konten utama
                       LayoutBuilder(
                         builder: (context, constraints) {
                           if (constraints.maxWidth > 700) {
@@ -50,8 +48,6 @@ class SuccessScreen extends StatelessWidget {
                       ),
 
                       const SizedBox(height: 24),
-
-                      // Tombol aksi
                       _buildActionButtons(context),
                     ],
                   ),
@@ -102,11 +98,8 @@ class SuccessScreen extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Foto pegawai
         Expanded(child: _buildPhotoSection(photoUrl)),
         const SizedBox(width: 32),
-
-        // Detail pegawai
         Expanded(child: _buildDetailSection(time)),
       ],
     );
