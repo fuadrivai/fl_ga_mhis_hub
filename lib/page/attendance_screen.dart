@@ -72,13 +72,6 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                                         ? employee
                                         : null;
                                   });
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) =>
-                                  //         PickImageScreen(employee: employee),
-                                  //   ),
-                                  // );
                                 },
                               ),
                             ),

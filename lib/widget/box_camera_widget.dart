@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
+import 'package:image/image.dart' as img;
 
 class BoxCameraWidget extends StatefulWidget {
   final Function(List<int>) onTakePicture;
@@ -97,9 +98,13 @@ class _BoxCameraWidgetState extends State<BoxCameraWidget> {
   Future<List<int>> captureAndUpload() async {
     RenderRepaintBoundary boundary =
         previewKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
-    ui.Image image = await boundary.toImage(pixelRatio: 2.0);
+    ui.Image image = await boundary.toImage(pixelRatio: 1.0);
     ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
     Uint8List pngBytes = byteData!.buffer.asUint8List();
-    return pngBytes;
+    img.Image? original = img.decodeImage(pngBytes);
+
+    List<int> jpegBytes = img.encodeJpg(original!, quality: 50);
+
+    return jpegBytes;
   }
 }
