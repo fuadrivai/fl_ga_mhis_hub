@@ -15,6 +15,8 @@ class _ListviewEmployeeWidgetState extends State<ListviewEmployeeWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemCount: widget.employees?.length ?? 0,
       itemBuilder: (context, index) {
         Employee employee = widget.employees![index];

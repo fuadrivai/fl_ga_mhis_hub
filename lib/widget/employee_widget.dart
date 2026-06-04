@@ -45,23 +45,9 @@ class _EmployeeWidgetState extends State<EmployeeWidget> {
           if ((widget.employees ?? []).isEmpty)
             CardEmptyWidget()
           else
-            Expanded(
-              child: Column(
-                children: [
-                  Expanded(
-                    child: widget.viewMode == ViewMode.list
-                        ? ListviewEmployeeWidget(
-                            employees: widget.employees,
-                            onTap: widget.onTap,
-                          )
-                        : GridviewEmployeeWidget(employees: widget.employees),
-                  ),
-                  // PaginationWidget(
-                  //   currentPage: widget.currentPage,
-                  //   totalPage: totalPages,
-                  // ),
-                ],
-              ),
+            ListviewEmployeeWidget(
+              employees: widget.employees,
+              onTap: widget.onTap,
             ),
         ],
       ),

@@ -25,6 +25,19 @@ class _PickImageScreenState extends State<PickImageScreen> {
   Future<void> _handleTakePicture(List<int> byte) async {
     if (byte.isEmpty) return;
 
+    final userId = widget.employee.user?.id;
+    if (userId == null) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Data user tidak ditemukan untuk karyawan ini'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+      return;
+    }
+
     setState(() {
       _isLoading = true;
     });
@@ -33,9 +46,9 @@ class _PickImageScreenState extends State<PickImageScreen> {
       String base64Image = base64Encode(byte);
       final attendance = await AttendanceApi.postAttendance({
         "date": Jiffy.now().format(pattern: "yyyy-MM-dd HH:mm:ss"),
-        "latitude": "-6.258053257818132",
-        "longitude": "106.6919005043957",
-        "user_id": widget.employee.user!.id,
+        "latitude": "-6.25805325781813",
+        "longitude": "106.69190050439570",
+        "user_id": userId,
         "photo": base64Image,
         "type": widget.type,
       });
@@ -226,6 +239,8 @@ class _PickImageScreenState extends State<PickImageScreen> {
     return SingleChildScrollView(
       child: Column(
         children: [
+          _buildHighlightNotice(),
+          const SizedBox(height: 10),
           Container(
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
@@ -249,9 +264,39 @@ class _PickImageScreenState extends State<PickImageScreen> {
                   ),
                   child: BoxCameraWidget(onTakePicture: _handleTakePicture),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 10),
                 _buildLocationInfo(),
               ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHighlightNotice() {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFFBEB),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xFFF59E0B), width: 1.2),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(Icons.warning_amber_rounded, color: Color(0xFFD97706)),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              'System ini menggunakan metode pengenalan wajah. Pastikan wajah anda terlihat jelas dan berada di tempat dengan cukup cahaya',
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+                color: Colors.orange[900],
+                height: 1.35,
+              ),
             ),
           ),
         ],

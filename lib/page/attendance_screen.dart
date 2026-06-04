@@ -1,6 +1,7 @@
 import 'package:fl_ga_mhis_hub/library/common.dart';
 import 'package:fl_ga_mhis_hub/model/models.dart';
 import 'package:fl_ga_mhis_hub/page/bloc/attendance_bloc.dart';
+import 'package:fl_ga_mhis_hub/page/employee_setting_screen.dart';
 import 'package:fl_ga_mhis_hub/page/pick_image_screen.dart';
 import 'package:fl_ga_mhis_hub/widget/widgets.dart';
 import 'package:flutter/material.dart';
@@ -38,11 +39,15 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
               children: [
                 Column(
                   children: [
-                    CustomAppbar(),
+                    CustomAppbar(
+                      onPressedSettings: () {
+                        navigateToSettings(state.employees ?? []);
+                      },
+                    ),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(24.0),
-                        child: Column(
+                        child: ListView(
                           children: [
                             SearchBarWidget(
                               onChanged: (value) {
@@ -60,20 +65,18 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                                 context.read<AttendanceBloc>().add(OnInit());
                               },
                             ),
-                            Expanded(
-                              child: EmployeeWidget(
-                                viewMode: ViewMode.list,
-                                currentPage: _currentPage,
-                                employees: state.filterEmployee,
-                                onTap: (employee) {
-                                  setState(() {
-                                    _showModal = !_showModal;
-                                    _selectedEmployee = _showModal
-                                        ? employee
-                                        : null;
-                                  });
-                                },
-                              ),
+                            EmployeeWidget(
+                              viewMode: ViewMode.list,
+                              currentPage: _currentPage,
+                              employees: state.filterEmployee,
+                              onTap: (employee) {
+                                setState(() {
+                                  _showModal = !_showModal;
+                                  _selectedEmployee = _showModal
+                                      ? employee
+                                      : null;
+                                });
+                              },
                             ),
                           ],
                         ),
@@ -98,19 +101,28 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
     );
   }
 
-  closeModal() {
+  void closeModal() {
     setState(() {
       _showModal = false;
       _selectedEmployee = null;
     });
   }
 
-  navigate(String type) {
+  void navigate(String type) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) =>
             PickImageScreen(type: type, employee: _selectedEmployee!),
+      ),
+    );
+  }
+
+  void navigateToSettings(List<Employee> employees) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EmployeeSettingScreen(employees: employees),
       ),
     );
   }

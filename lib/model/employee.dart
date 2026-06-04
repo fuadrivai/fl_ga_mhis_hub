@@ -5,28 +5,24 @@ class Employee {
   String? idTalenta;
   String? createdAt;
   String? updatedAt;
-  int? scheduleId;
   Person? approval;
-  int? payrolInfoId;
-  int? locationId;
   Person? personal;
   Employment? employment;
   ActiveSchedule? activeSchedule;
   User? user;
+  bool? isActive;
 
   Employee({
     this.id,
     this.idTalenta,
     this.createdAt,
     this.updatedAt,
-    this.scheduleId,
     this.approval,
-    this.payrolInfoId,
-    this.locationId,
     this.personal,
     this.employment,
     this.user,
     this.activeSchedule,
+    this.isActive,
   });
 
   Employee.fromJson(Map<String, dynamic> json) {
@@ -34,15 +30,12 @@ class Employee {
     idTalenta = json['id_talenta'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    scheduleId = json['schedule_id'];
     approval = json['approval'] != null
         ? Person.fromJson(json['approval'])
         : null;
     activeSchedule = json['active_schedule'] != null
         ? ActiveSchedule.fromJson(json['active_schedule'])
         : null;
-    payrolInfoId = json['payrol_info_id'];
-    locationId = json['location_id'];
     personal = json['personal'] != null
         ? Person.fromJson(json['personal'])
         : null;
@@ -50,6 +43,9 @@ class Employee {
     employment = json['employment'] != null
         ? Employment.fromJson(json['employment'])
         : null;
+    isActive = (json['is_active'] == "1" || json['is_active'] == 1)
+        ? true
+        : false;
   }
 
   Map<String, dynamic> toJson() {
@@ -58,10 +54,8 @@ class Employee {
     data['id_talenta'] = idTalenta;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
-    data['schedule_id'] = scheduleId;
     data['approval'] = approval;
-    data['payrol_info_id'] = payrolInfoId;
-    data['location_id'] = locationId;
+    data['is_active'] = isActive;
     if (personal != null) {
       data['personal'] = personal!.toJson();
     }

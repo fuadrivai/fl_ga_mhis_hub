@@ -39,8 +39,8 @@ class _BoxCameraWidgetState extends State<BoxCameraWidget> {
         RepaintBoundary(
           key: previewKey,
           child: Container(
-            width: 600,
-            height: 450,
+            width: 550,
+            height: 420,
             decoration: BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.circular(12),
@@ -49,7 +49,7 @@ class _BoxCameraWidgetState extends State<BoxCameraWidget> {
             child: RTCVideoView(renderer, mirror: true),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 10),
         ElevatedButton.icon(
           onPressed: () async {
             List<int> byteImage = await captureAndUpload();

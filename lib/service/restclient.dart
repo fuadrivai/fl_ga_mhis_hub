@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' hide Headers;
 import 'package:fl_ga_mhis_hub/model/models.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -13,4 +13,7 @@ abstract class RestClient {
 
   @POST("post/attendance/ga")
   Future<AttendanceLog> postAttendance(@Body() Map<String, dynamic> map);
+
+  @POST("ga/employee/face")
+  Future postFaceEmployee(@Body() Map<String, dynamic> map);
 }
