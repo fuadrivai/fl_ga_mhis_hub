@@ -39,8 +39,8 @@ class _BoxCameraWidgetState extends State<BoxCameraWidget> {
         RepaintBoundary(
           key: previewKey,
           child: Container(
-            width: 550,
-            height: 420,
+            width: 540,
+            height: 390,
             decoration: BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.circular(12),

@@ -91,7 +91,10 @@ class _PickImageScreenState extends State<PickImageScreen> {
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(32),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 16,
+                    ),
                     child: LayoutBuilder(
                       builder: (context, constraints) {
                         if (constraints.maxWidth > 1000) {
@@ -133,7 +136,7 @@ class _PickImageScreenState extends State<PickImageScreen> {
   Widget _buildHeader() {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 32),
+      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 32),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [

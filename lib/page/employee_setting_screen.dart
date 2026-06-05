@@ -1,4 +1,3 @@
-import 'package:fl_ga_mhis_hub/library/common.dart';
 import 'package:fl_ga_mhis_hub/model/models.dart';
 import 'package:fl_ga_mhis_hub/page/employee_detail_screen.dart';
 import 'package:fl_ga_mhis_hub/widget/widgets.dart';
@@ -67,7 +66,6 @@ class _EmployeeSettingScreenState extends State<EmployeeSettingScreen> {
               },
             ),
             EmployeeWidget(
-              viewMode: ViewMode.list,
               currentPage: _currentPage,
               employees: _filteredEmployees,
               onTap: (employee) {

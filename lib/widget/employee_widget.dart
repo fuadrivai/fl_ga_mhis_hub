@@ -1,18 +1,15 @@
-import 'package:fl_ga_mhis_hub/library/common.dart';
 import 'package:fl_ga_mhis_hub/model/models.dart';
 import 'package:fl_ga_mhis_hub/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
 class EmployeeWidget extends StatefulWidget {
   final List<Employee>? employees;
-  final ViewMode? viewMode;
   final int currentPage;
   final Function(Employee)? onTap;
   const EmployeeWidget({
     super.key,
     this.employees,
     required this.currentPage,
-    this.viewMode,
     this.onTap,
   });
 

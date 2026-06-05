@@ -139,7 +139,7 @@ class _CardEmployeeWidgetState extends State<CardEmployeeWidget> {
                                 : Colors.black,
                           ),
                           child: Text(
-                            "${personal?.fullname ?? "--"} - ${widget.employee?.id ?? "--"}",
+                            "${personal?.fullname ?? "--"} - ${employment?.employeeId ?? "--"}",
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),

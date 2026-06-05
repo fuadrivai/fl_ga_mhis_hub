@@ -1,4 +1,3 @@
-import 'package:fl_ga_mhis_hub/library/common.dart';
 import 'package:fl_ga_mhis_hub/model/models.dart';
 import 'package:fl_ga_mhis_hub/page/bloc/attendance_bloc.dart';
 import 'package:fl_ga_mhis_hub/page/employee_setting_screen.dart';
@@ -66,7 +65,6 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                               },
                             ),
                             EmployeeWidget(
-                              viewMode: ViewMode.list,
                               currentPage: _currentPage,
                               employees: state.filterEmployee,
                               onTap: (employee) {

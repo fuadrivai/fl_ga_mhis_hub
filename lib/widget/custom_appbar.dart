@@ -1,6 +1,7 @@
 import 'package:fl_ga_mhis_hub/library/common.dart';
 import 'package:fl_ga_mhis_hub/widget/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppbar extends StatelessWidget {
   final VoidCallback? onPressedSettings;
@@ -161,8 +162,8 @@ class CustomAppbar extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         child: Padding(
           padding: EdgeInsets.all(isExtraSmallScreen ? 9 : 10),
-          child: Icon(
-            Icons.settings_rounded,
+          child: FaIcon(
+            FontAwesomeIcons.gear,
             color: Colors.white,
             size: isExtraSmallScreen ? 18 : 20,
           ),

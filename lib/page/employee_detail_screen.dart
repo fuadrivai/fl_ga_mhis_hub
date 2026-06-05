@@ -2,6 +2,7 @@ import 'package:fl_ga_mhis_hub/model/models.dart';
 import 'package:fl_ga_mhis_hub/page/camera_page.dart';
 import 'package:fl_ga_mhis_hub/service/api.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class EmployeeDetailScreen extends StatefulWidget {
   final Employee employee;
@@ -97,8 +98,8 @@ class _EmployeeDetailScreenState extends State<EmployeeDetailScreen> {
                     onTap: () => _onTapEditPhoto(context),
                     child: const Padding(
                       padding: EdgeInsets.all(9),
-                      child: Icon(
-                        Icons.edit_rounded,
+                      child: FaIcon(
+                        FontAwesomeIcons.penToSquare,
                         color: Colors.white,
                         size: 18,
                       ),
@@ -152,30 +153,10 @@ class _EmployeeDetailScreenState extends State<EmployeeDetailScreen> {
   }
 
   Widget _buildRightPanel(Employee employee) {
-    final personal = employee.personal;
     final employment = employee.employment;
 
     return Column(
       children: [
-        _buildInfoSection(
-          title: 'Personal Information',
-          items: [
-            _InfoItem('Full Name', personal?.fullname),
-            _InfoItem('Email', personal?.email),
-            _InfoItem('Phone', personal?.phone),
-            _InfoItem('Mobile Phone', personal?.mobilePhone),
-            _InfoItem('Gender', personal?.gendre),
-            _InfoItem('Birth Place', personal?.birthPlace),
-            _InfoItem('Birth Date', personal?.birthDate),
-            _InfoItem('Address', personal?.address),
-            _InfoItem('Current Address', personal?.currentAddress),
-            _InfoItem('Religion', personal?.religion?.name),
-            _InfoItem('Blood Type', personal?.bloodType),
-            _InfoItem('Marital Status', personal?.maritalStatus),
-            _InfoItem('Identity Number', personal?.identityNumber),
-          ],
-        ),
-        const SizedBox(height: 16),
         _buildInfoSection(
           title: 'Employment Information',
           items: [
