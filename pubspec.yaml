@@ -37,16 +37,16 @@ dependencies:
   font_awesome_flutter: ^11.0.0
   jiffy: ^6.4.5
   flutter_bloc: ^9.1.1
-  equatable: ^2.0.8
+  equatable: ^2.1.0
   retrofit: ^4.9.2
   get_it: ^9.2.1
-  intl: ^0.20.2
-  dio: ^5.9.2
+  intl: ^0.20.3
+  dio: ^5.10.0
   image: ^4.9.1
-  image_picker: ^1.2.2
-  geolocator: ^14.0.2
-  flutter_webrtc: ^1.4.1
-  path_provider: ^2.1.5
+  image_picker: ^1.2.3
+  geolocator: ^14.0.3
+  flutter_webrtc: ^1.5.2
+  path_provider: ^2.1.6
   # opencv_dart: ^1.4.3
 
 dev_dependencies:
@@ -59,8 +59,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
-  build_runner: ^2.15.0
-  retrofit_generator: ^10.2.6
+  build_runner: ^2.15.1
+  retrofit_generator: ^10.2.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

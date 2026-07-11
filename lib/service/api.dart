@@ -4,7 +4,7 @@ import 'package:fl_ga_mhis_hub/service/restclient.dart';
 
 class Api {
   // static const String baseUrl = "http://192.168.207.182:3000/";
-  static const String baseUrl = "https://mhis-hub.mhis.link/";
+  static const String baseUrl = "https://hub.mutiaraharapan.sch.id/";
 
   static const String baseApiUrl = "${Api.baseUrl}api/";
 

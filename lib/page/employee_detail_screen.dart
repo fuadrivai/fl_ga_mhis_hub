@@ -242,7 +242,7 @@ class _EmployeeDetailScreenState extends State<EmployeeDetailScreen> {
     if (avatarPath == null || avatarPath.isEmpty) {
       return null;
     }
-    return NetworkImage('${Api.baseUrl}/public/storage/$avatarPath');
+    return NetworkImage('${Api.baseUrl}storage/$avatarPath');
   }
 
   void _onTapEditPhoto(BuildContext context) {

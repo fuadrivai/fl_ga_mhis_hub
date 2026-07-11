@@ -182,7 +182,7 @@ class _CardEmployeeWidgetState extends State<CardEmployeeWidget> {
             height: isHovered ? 52 : 48,
             child: ClipOval(
               child: Image.network(
-                "${Api.baseUrl}public/storage/${personal!.avatar!}",
+                "${Api.baseUrl}storage/${personal!.avatar!}",
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
                   return _avatarFallback(context);
